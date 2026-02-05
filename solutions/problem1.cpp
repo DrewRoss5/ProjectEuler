@@ -8,7 +8,7 @@ int main(int argc, char** argv){
     // find our solution
     while (curr * 3 < target){
         sum += (curr * 3);
-        if (curr < (target / 5) && curr * 5 % 15 > 0)
+        if (curr < (target / 5) && curr % 3 > 0)
             sum += (curr * 5);
         curr++;
 
