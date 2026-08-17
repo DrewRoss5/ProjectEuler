@@ -2,10 +2,18 @@
 #include <math.h>
 #include <stdint.h>
 
+bool is_prime(size_t n) {
+    for (int i = 3; i < sqrt(n) + 1; i++) {
+        if (n % i == 0)
+            return false;
+    }
+    return true;
+}
+
 uint32_t max_prime_factor(size_t n) {
     uint32_t max_factor = (n % 2 == 0 && n != 2) ? 2 : 1;
     for (uint32_t i = 3; i < sqrt(n) + 1; i += 2) {
-        if (n % i == 0 && max_prime_factor(i) == 1)
+        if (n % i == 0 && is_prime(i))
             max_factor = i;
     }
     return max_factor;
